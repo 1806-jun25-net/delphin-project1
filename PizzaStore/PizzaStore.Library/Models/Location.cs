@@ -22,16 +22,32 @@ namespace PizzaStore.Library.Models
         }
 
 
-        public List<int> LocationInventory(List<string> ingredients)
+
+        public List<KeyValuePair<string, int> LocationInventory(List<string> ingredients)
         {
             throw new NotImplementedException();
-        }
-
-        public List<DateTime> OrderHistory(DateTime orderDateTime)
-        {
-            throw new NotImplementedException();
-        }
-
-        public AddIngredients(int )
     }
+
+    public List<DateTime> OrderHistory(DateTime orderDateTime)
+    {
+        throw new NotImplementedException();
+    }
+
+    public List<T>AddIngredients(List<KeyValuePair<string, int>>)
+    {
+
+        new KeyValuePair<string, int>("Pepperoni", 1),
+        new KeyValuePair<string, int>("Sausage", 2),
+        new KeyValuePair<string, int>("Beef", 3),
+        new KeyValuePair<string, int>("Steak", 4),
+        new KeyValuePair<string, int>("Chicken", 5),
+        new KeyValuePair<string, int>("Onion", 6),
+        new KeyValuePair<string, int>("Green Pepper", 6),
+        new KeyValuePair<string, int>("Mushroom", 6),
+        new KeyValuePair<string, int>("Red Pepper", 6),
+
+
+
+    }
+}
 }

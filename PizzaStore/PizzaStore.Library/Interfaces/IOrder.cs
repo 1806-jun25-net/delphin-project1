@@ -8,11 +8,12 @@ namespace PizzaStore.Library.Interfaces
     {
        
         string OrderLocation { get; set; }
-         DateTime OrderDateTime { get; set; }
+        DateTime OrderDateTime { get; set; }
         string OrderUserID { get; set; } // To be set as "UserID-OrderDateTime"
         //string OrderID { get; set; }
        
-        decimal OrderPrice { get; set; }
+        decimal OrderTotalPrice { get; set; }
+        
 
         //string Ingredients(List<string> ingredients);
 
