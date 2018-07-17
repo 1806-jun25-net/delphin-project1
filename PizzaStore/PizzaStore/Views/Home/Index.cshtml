@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "JayJayPizza";
+}
+
+<div class="jumbotron">
+    <h1>Welcome to JayJay Pizza Store</h1>
+    <p class="lead">Home of the best pizzas in town.</p>
+    <p><a href="~/Pizzas/Create" class="btn btn-primary btn-lg">Place Order &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("New Users?", "Create", "Users")</h2>
+        <p>
+            Let's us know who you are; so, we can provide you a much better pleasant service.
+        </p>
+        
+    </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Suggestions?", "Create", "Pizzas")</h2>
+        <p>Want to take a look at our daily special pizzas???</p>
+    </div>
+    <div class="col-md-4">
+        <h2>@Html.ActionLink("Locations?", "Index", "Locations")</h2>
+        <p>You can easily find a great store near you.</p>
+    </div>
+</div>

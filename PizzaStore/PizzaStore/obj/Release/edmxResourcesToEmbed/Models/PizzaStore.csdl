@@ -1,0 +1,832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PizzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Crust">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_CrustID" FromRole="Crusts" ToRole="Pizzas" />
+  </EntityType>
+  <EntityType Name="Ingredient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="IsSelected" Type="Boolean" />
+    <NavigationProperty Name="IngredientsOnPizzas" Relationship="Self.fk_IngredientsOnPizza_Ingredient1" FromRole="Ingredients" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="IngredientsOnPizzas1" Relationship="Self.fk_IngredientsOnPizza_Ingredient2" FromRole="Ingredients" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="IngredientsOnPizzas2" Relationship="Self.fk_IngredientsOnPizza_Ingredient3" FromRole="Ingredients" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="IngredientsOnPizzas3" Relationship="Self.fk_IngredientsOnPizza_Ingredient4" FromRole="Ingredients" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="IngredientsOnPizzas4" Relationship="Self.fk_IngredientsOnPizza_Ingredient5" FromRole="Ingredients" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="IngredientsOnPizzas5" Relationship="Self.fk_IngredientsOnPizza_Ingredient6" FromRole="Ingredients" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="IngredientsOnPizzas6" Relationship="Self.fk_IngredientsOnPizza_Ingredient7" FromRole="Ingredients" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="IngredientsOnPizzas7" Relationship="Self.fk_IngredientsOnPizza_Ingredient8" FromRole="Ingredients" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="IngredientsOnPizzas8" Relationship="Self.fk_IngredientsOnPizza_Ingredient9" FromRole="Ingredients" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="Inventories" Relationship="Self.fk_Inventory_Ingredients_ID" FromRole="Ingredients" ToRole="Inventory" />
+  </EntityType>
+  <EntityType Name="IngredientsOnPizza">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Ingredient1" Type="Int32" Nullable="false" />
+    <Property Name="Ingredient2" Type="Int32" />
+    <Property Name="Ingredient3" Type="Int32" />
+    <Property Name="Ingredient4" Type="Int32" />
+    <Property Name="Ingredient5" Type="Int32" />
+    <Property Name="Ingredient6" Type="Int32" />
+    <Property Name="Ingredient7" Type="Int32" />
+    <Property Name="Ingredient8" Type="Int32" />
+    <Property Name="Ingredient9" Type="Int32" />
+    <NavigationProperty Name="Ingredient" Relationship="Self.fk_IngredientsOnPizza_Ingredient1" FromRole="IngredientsOnPizza" ToRole="Ingredients" />
+    <NavigationProperty Name="Ingredient10" Relationship="Self.fk_IngredientsOnPizza_Ingredient2" FromRole="IngredientsOnPizza" ToRole="Ingredients" />
+    <NavigationProperty Name="Ingredient11" Relationship="Self.fk_IngredientsOnPizza_Ingredient3" FromRole="IngredientsOnPizza" ToRole="Ingredients" />
+    <NavigationProperty Name="Ingredient12" Relationship="Self.fk_IngredientsOnPizza_Ingredient4" FromRole="IngredientsOnPizza" ToRole="Ingredients" />
+    <NavigationProperty Name="Ingredient13" Relationship="Self.fk_IngredientsOnPizza_Ingredient5" FromRole="IngredientsOnPizza" ToRole="Ingredients" />
+    <NavigationProperty Name="Ingredient14" Relationship="Self.fk_IngredientsOnPizza_Ingredient6" FromRole="IngredientsOnPizza" ToRole="Ingredients" />
+    <NavigationProperty Name="Ingredient15" Relationship="Self.fk_IngredientsOnPizza_Ingredient7" FromRole="IngredientsOnPizza" ToRole="Ingredients" />
+    <NavigationProperty Name="Ingredient16" Relationship="Self.fk_IngredientsOnPizza_Ingredient8" FromRole="IngredientsOnPizza" ToRole="Ingredients" />
+    <NavigationProperty Name="Ingredient17" Relationship="Self.fk_IngredientsOnPizza_Ingredient9" FromRole="IngredientsOnPizza" ToRole="Ingredients" />
+    <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_IngredientsOnPizza_ID" FromRole="IngredientsOnPizza" ToRole="Pizzas" />
+  </EntityType>
+  <EntityType Name="Inventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="IngredientsID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ingredient" Relationship="Self.fk_Inventory_Ingredients_ID" FromRole="Inventory" ToRole="Ingredients" />
+    <NavigationProperty Name="Location" Relationship="Self.fk_Inventory_LocationID" FromRole="Inventory" ToRole="Locations" />
+  </EntityType>
+  <EntityType Name="LocationOrderList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Location" Relationship="Self.fk_LocationOrderList_LocationID" FromRole="LocationOrderList" ToRole="Locations" />
+    <NavigationProperty Name="Order" Relationship="Self.fk_LocationOrderList_OrderID" FromRole="LocationOrderList" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Inventories" Relationship="Self.fk_Inventory_LocationID" FromRole="Locations" ToRole="Inventory" />
+    <NavigationProperty Name="LocationOrderLists" Relationship="Self.fk_LocationOrderList_LocationID" FromRole="Locations" ToRole="LocationOrderList" />
+    <NavigationProperty Name="Users" Relationship="Self.fk_Location_ID" FromRole="Locations" ToRole="Users" />
+    <NavigationProperty Name="LocationUserLists" Relationship="Self.fk_LocationUserList_LocationID" FromRole="Locations" ToRole="LocationUserList" />
+    <NavigationProperty Name="Orders" Relationship="Self.fk_Order_Location_ID" FromRole="Locations" ToRole="Orders" />
+    <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_Location_ID" FromRole="Locations" ToRole="Pizzas" />
+  </EntityType>
+  <EntityType Name="LocationUserList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Location" Relationship="Self.fk_LocationUserList_LocationID" FromRole="LocationUserList" ToRole="Locations" />
+    <NavigationProperty Name="User" Relationship="Self.fk_LocationUserList_UserID" FromRole="LocationUserList" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="NumberOfPizzaOrdered">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Pizza1" Type="Int32" Nullable="false" />
+    <Property Name="Pizza2" Type="Int32" />
+    <Property Name="Pizza3" Type="Int32" />
+    <Property Name="Pizza4" Type="Int32" />
+    <Property Name="Pizza5" Type="Int32" />
+    <Property Name="Pizza6" Type="Int32" />
+    <Property Name="Pizza7" Type="Int32" />
+    <Property Name="Pizza8" Type="Int32" />
+    <Property Name="Pizza9" Type="Int32" />
+    <Property Name="Pizza10" Type="Int32" />
+    <Property Name="Pizza11" Type="Int32" />
+    <Property Name="Pizza12" Type="Int32" />
+    <NavigationProperty Name="Pizza" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza1" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza13" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza10" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza14" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza11" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza15" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza12" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza16" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza2" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza17" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza3" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza18" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza4" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza19" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza5" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza20" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza6" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza21" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza7" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza22" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza8" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Pizza23" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza9" FromRole="NumberOfPizzaOrdered" ToRole="Pizzas" />
+    <NavigationProperty Name="Orders" Relationship="Self.fk_Order_NumberOfPizzaOrdered" FromRole="NumberOfPizzaOrdered" ToRole="Orders" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="NumberOfPizzaOrdered" Type="Int32" Nullable="false" />
+    <Property Name="TotalOrderPrice" Type="Int32" Nullable="false" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="OrderDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="LocationOrderLists" Relationship="Self.fk_LocationOrderList_OrderID" FromRole="Orders" ToRole="LocationOrderList" />
+    <NavigationProperty Name="Location" Relationship="Self.fk_Order_Location_ID" FromRole="Orders" ToRole="Locations" />
+    <NavigationProperty Name="NumberOfPizzaOrdered1" Relationship="Self.fk_Order_NumberOfPizzaOrdered" FromRole="Orders" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="User" Relationship="Self.fk_Order_User_ID" FromRole="Orders" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Pizza">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="SizeID" Type="Int32" Nullable="false" />
+    <Property Name="CrustID" Type="Int32" Nullable="false" />
+    <Property Name="SauceID" Type="Int32" Nullable="false" />
+    <Property Name="IngredientsOnPizzaID" Type="Int32" Nullable="false" />
+    <Property Name="PizzaPrice" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Crust" Relationship="Self.fk_Pizza_CrustID" FromRole="Pizzas" ToRole="Crusts" />
+    <NavigationProperty Name="IngredientsOnPizza" Relationship="Self.fk_Pizza_IngredientsOnPizza_ID" FromRole="Pizzas" ToRole="IngredientsOnPizza" />
+    <NavigationProperty Name="Location" Relationship="Self.fk_Pizza_Location_ID" FromRole="Pizzas" ToRole="Locations" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza1" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds1" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza10" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds2" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza11" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds3" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza12" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds4" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza2" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds5" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza3" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds6" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza4" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds7" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza5" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds8" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza6" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds9" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza7" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds10" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza8" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="NumberOfPizzaOrdereds11" Relationship="Self.fk_NumberOfPizzaOrdered_Pizza9" FromRole="Pizzas" ToRole="NumberOfPizzaOrdered" />
+    <NavigationProperty Name="Sauce" Relationship="Self.fk_Pizza_SauceID" FromRole="Pizzas" ToRole="Sauces" />
+    <NavigationProperty Name="Size" Relationship="Self.fk_Pizza_SizeID" FromRole="Pizzas" ToRole="Sizes" />
+    <NavigationProperty Name="User" Relationship="Self.fk_Pizza_User_ID" FromRole="Pizzas" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Sauce">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_SauceID" FromRole="Sauces" ToRole="Pizzas" />
+  </EntityType>
+  <EntityType Name="Size">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_SizeID" FromRole="Sizes" ToRole="Pizzas" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PhoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="LocationID" Type="Int32" Nullable="false" />
+    <Property Name="LastTimeOrdered" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Location" Relationship="Self.fk_Location_ID" FromRole="Users" ToRole="Locations" />
+    <NavigationProperty Name="LocationUserLists" Relationship="Self.fk_LocationUserList_UserID" FromRole="Users" ToRole="LocationUserList" />
+    <NavigationProperty Name="Orders" Relationship="Self.fk_Order_User_ID" FromRole="Users" ToRole="Orders" />
+    <NavigationProperty Name="Pizzas" Relationship="Self.fk_Pizza_User_ID" FromRole="Users" ToRole="Pizzas" />
+  </EntityType>
+  <EntityType Name="database_firewall_rules">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="name" />
+      <PropertyRef Name="start_ip_address" />
+      <PropertyRef Name="end_ip_address" />
+      <PropertyRef Name="create_date" />
+      <PropertyRef Name="modify_date" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="start_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="end_ip_address" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="modify_date" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <Association Name="fk_Pizza_CrustID">
+    <End Role="Crusts" Type="Self.Crust" Multiplicity="1" />
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Crusts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pizzas">
+        <PropertyRef Name="CrustID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_IngredientsOnPizza_Ingredient1">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="1" />
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IngredientsOnPizza">
+        <PropertyRef Name="Ingredient1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_IngredientsOnPizza_Ingredient2">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="0..1" />
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IngredientsOnPizza">
+        <PropertyRef Name="Ingredient2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_IngredientsOnPizza_Ingredient3">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="0..1" />
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IngredientsOnPizza">
+        <PropertyRef Name="Ingredient3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_IngredientsOnPizza_Ingredient4">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="0..1" />
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IngredientsOnPizza">
+        <PropertyRef Name="Ingredient4" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_IngredientsOnPizza_Ingredient5">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="0..1" />
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IngredientsOnPizza">
+        <PropertyRef Name="Ingredient5" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_IngredientsOnPizza_Ingredient6">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="0..1" />
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IngredientsOnPizza">
+        <PropertyRef Name="Ingredient6" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_IngredientsOnPizza_Ingredient7">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="0..1" />
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IngredientsOnPizza">
+        <PropertyRef Name="Ingredient7" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_IngredientsOnPizza_Ingredient8">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="0..1" />
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IngredientsOnPizza">
+        <PropertyRef Name="Ingredient8" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_IngredientsOnPizza_Ingredient9">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="0..1" />
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IngredientsOnPizza">
+        <PropertyRef Name="Ingredient9" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Inventory_Ingredients_ID">
+    <End Role="Ingredients" Type="Self.Ingredient" Multiplicity="1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ingredients">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="IngredientsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Pizza_IngredientsOnPizza_ID">
+    <End Role="IngredientsOnPizza" Type="Self.IngredientsOnPizza" Multiplicity="1" />
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IngredientsOnPizza">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pizzas">
+        <PropertyRef Name="IngredientsOnPizzaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Inventory_LocationID">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="Inventory" Type="Self.Inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Inventory">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LocationOrderList_LocationID">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="LocationOrderList" Type="Self.LocationOrderList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LocationOrderList">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LocationOrderList_OrderID">
+    <End Role="Orders" Type="Self.Order" Multiplicity="1" />
+    <End Role="LocationOrderList" Type="Self.LocationOrderList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LocationOrderList">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Location_ID">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LocationUserList_LocationID">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="LocationUserList" Type="Self.LocationUserList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LocationUserList">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Order_Location_ID">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Pizza_Location_ID">
+    <End Role="Locations" Type="Self.Location" Multiplicity="1" />
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pizzas">
+        <PropertyRef Name="LocationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_LocationUserList_UserID">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="LocationUserList" Type="Self.LocationUserList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LocationUserList">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza1">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza10">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza10" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza11">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza11" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza12">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza12" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza2">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza3">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza4">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza4" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza5">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza5" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza6">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza6" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza7">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza7" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza8">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza8" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_NumberOfPizzaOrdered_Pizza9">
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="0..1" />
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pizzas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="Pizza9" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Order_NumberOfPizzaOrdered">
+    <End Role="NumberOfPizzaOrdered" Type="Self.NumberOfPizzaOrdered" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NumberOfPizzaOrdered">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="NumberOfPizzaOrdered" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Order_User_ID">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Pizza_SauceID">
+    <End Role="Sauces" Type="Self.Sauce" Multiplicity="1" />
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sauces">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pizzas">
+        <PropertyRef Name="SauceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Pizza_SizeID">
+    <End Role="Sizes" Type="Self.Size" Multiplicity="1" />
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sizes">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pizzas">
+        <PropertyRef Name="SizeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Pizza_User_ID">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Pizzas" Type="Self.Pizza" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pizzas">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PizzaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Crusts" EntityType="Self.Crust" />
+    <EntitySet Name="Ingredients" EntityType="Self.Ingredient" />
+    <EntitySet Name="IngredientsOnPizzas" EntityType="Self.IngredientsOnPizza" />
+    <EntitySet Name="Inventories" EntityType="Self.Inventory" />
+    <EntitySet Name="LocationOrderLists" EntityType="Self.LocationOrderList" />
+    <EntitySet Name="Locations" EntityType="Self.Location" />
+    <EntitySet Name="LocationUserLists" EntityType="Self.LocationUserList" />
+    <EntitySet Name="NumberOfPizzaOrdereds" EntityType="Self.NumberOfPizzaOrdered" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Pizzas" EntityType="Self.Pizza" />
+    <EntitySet Name="Sauces" EntityType="Self.Sauce" />
+    <EntitySet Name="Sizes" EntityType="Self.Size" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="database_firewall_rules" EntityType="Self.database_firewall_rules" />
+    <AssociationSet Name="fk_Pizza_CrustID" Association="Self.fk_Pizza_CrustID">
+      <End Role="Crusts" EntitySet="Crusts" />
+      <End Role="Pizzas" EntitySet="Pizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_IngredientsOnPizza_Ingredient1" Association="Self.fk_IngredientsOnPizza_Ingredient1">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_IngredientsOnPizza_Ingredient2" Association="Self.fk_IngredientsOnPizza_Ingredient2">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_IngredientsOnPizza_Ingredient3" Association="Self.fk_IngredientsOnPizza_Ingredient3">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_IngredientsOnPizza_Ingredient4" Association="Self.fk_IngredientsOnPizza_Ingredient4">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_IngredientsOnPizza_Ingredient5" Association="Self.fk_IngredientsOnPizza_Ingredient5">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_IngredientsOnPizza_Ingredient6" Association="Self.fk_IngredientsOnPizza_Ingredient6">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_IngredientsOnPizza_Ingredient7" Association="Self.fk_IngredientsOnPizza_Ingredient7">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_IngredientsOnPizza_Ingredient8" Association="Self.fk_IngredientsOnPizza_Ingredient8">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_IngredientsOnPizza_Ingredient9" Association="Self.fk_IngredientsOnPizza_Ingredient9">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Inventory_Ingredients_ID" Association="Self.fk_Inventory_Ingredients_ID">
+      <End Role="Ingredients" EntitySet="Ingredients" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Pizza_IngredientsOnPizza_ID" Association="Self.fk_Pizza_IngredientsOnPizza_ID">
+      <End Role="IngredientsOnPizza" EntitySet="IngredientsOnPizzas" />
+      <End Role="Pizzas" EntitySet="Pizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Inventory_LocationID" Association="Self.fk_Inventory_LocationID">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Inventory" EntitySet="Inventories" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LocationOrderList_LocationID" Association="Self.fk_LocationOrderList_LocationID">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="LocationOrderList" EntitySet="LocationOrderLists" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LocationOrderList_OrderID" Association="Self.fk_LocationOrderList_OrderID">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="LocationOrderList" EntitySet="LocationOrderLists" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Location_ID" Association="Self.fk_Location_ID">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LocationUserList_LocationID" Association="Self.fk_LocationUserList_LocationID">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="LocationUserList" EntitySet="LocationUserLists" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Order_Location_ID" Association="Self.fk_Order_Location_ID">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Pizza_Location_ID" Association="Self.fk_Pizza_Location_ID">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Pizzas" EntitySet="Pizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_LocationUserList_UserID" Association="Self.fk_LocationUserList_UserID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="LocationUserList" EntitySet="LocationUserLists" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza1" Association="Self.fk_NumberOfPizzaOrdered_Pizza1">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza10" Association="Self.fk_NumberOfPizzaOrdered_Pizza10">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza11" Association="Self.fk_NumberOfPizzaOrdered_Pizza11">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza12" Association="Self.fk_NumberOfPizzaOrdered_Pizza12">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza2" Association="Self.fk_NumberOfPizzaOrdered_Pizza2">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza3" Association="Self.fk_NumberOfPizzaOrdered_Pizza3">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza4" Association="Self.fk_NumberOfPizzaOrdered_Pizza4">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza5" Association="Self.fk_NumberOfPizzaOrdered_Pizza5">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza6" Association="Self.fk_NumberOfPizzaOrdered_Pizza6">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza7" Association="Self.fk_NumberOfPizzaOrdered_Pizza7">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza8" Association="Self.fk_NumberOfPizzaOrdered_Pizza8">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_NumberOfPizzaOrdered_Pizza9" Association="Self.fk_NumberOfPizzaOrdered_Pizza9">
+      <End Role="Pizzas" EntitySet="Pizzas" />
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Order_NumberOfPizzaOrdered" Association="Self.fk_Order_NumberOfPizzaOrdered">
+      <End Role="NumberOfPizzaOrdered" EntitySet="NumberOfPizzaOrdereds" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Order_User_ID" Association="Self.fk_Order_User_ID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Pizza_SauceID" Association="Self.fk_Pizza_SauceID">
+      <End Role="Sauces" EntitySet="Sauces" />
+      <End Role="Pizzas" EntitySet="Pizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Pizza_SizeID" Association="Self.fk_Pizza_SizeID">
+      <End Role="Sizes" EntitySet="Sizes" />
+      <End Role="Pizzas" EntitySet="Pizzas" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Pizza_User_ID" Association="Self.fk_Pizza_User_ID">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Pizzas" EntitySet="Pizzas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PizzaModelStoreContainer" CdmEntityContainer="PizzaEntities">
+    <EntitySetMapping Name="Crusts">
+      <EntityTypeMapping TypeName="PizzaModel.Crust">
+        <MappingFragment StoreEntitySet="Crusts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ingredients">
+      <EntityTypeMapping TypeName="PizzaModel.Ingredient">
+        <MappingFragment StoreEntitySet="Ingredients">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="IsSelected" ColumnName="IsSelected" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IngredientsOnPizzas">
+      <EntityTypeMapping TypeName="PizzaModel.IngredientsOnPizza">
+        <MappingFragment StoreEntitySet="IngredientsOnPizza">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Ingredient1" ColumnName="Ingredient1" />
+          <ScalarProperty Name="Ingredient2" ColumnName="Ingredient2" />
+          <ScalarProperty Name="Ingredient3" ColumnName="Ingredient3" />
+          <ScalarProperty Name="Ingredient4" ColumnName="Ingredient4" />
+          <ScalarProperty Name="Ingredient5" ColumnName="Ingredient5" />
+          <ScalarProperty Name="Ingredient6" ColumnName="Ingredient6" />
+          <ScalarProperty Name="Ingredient7" ColumnName="Ingredient7" />
+          <ScalarProperty Name="Ingredient8" ColumnName="Ingredient8" />
+          <ScalarProperty Name="Ingredient9" ColumnName="Ingredient9" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventories">
+      <EntityTypeMapping TypeName="PizzaModel.Inventory">
+        <MappingFragment StoreEntitySet="Inventory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="IngredientsID" ColumnName="IngredientsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationOrderLists">
+      <EntityTypeMapping TypeName="PizzaModel.LocationOrderList">
+        <MappingFragment StoreEntitySet="LocationOrderList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="PizzaModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LocationUserLists">
+      <EntityTypeMapping TypeName="PizzaModel.LocationUserList">
+        <MappingFragment StoreEntitySet="LocationUserList">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NumberOfPizzaOrdereds">
+      <EntityTypeMapping TypeName="PizzaModel.NumberOfPizzaOrdered">
+        <MappingFragment StoreEntitySet="NumberOfPizzaOrdered">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Pizza1" ColumnName="Pizza1" />
+          <ScalarProperty Name="Pizza2" ColumnName="Pizza2" />
+          <ScalarProperty Name="Pizza3" ColumnName="Pizza3" />
+          <ScalarProperty Name="Pizza4" ColumnName="Pizza4" />
+          <ScalarProperty Name="Pizza5" ColumnName="Pizza5" />
+          <ScalarProperty Name="Pizza6" ColumnName="Pizza6" />
+          <ScalarProperty Name="Pizza7" ColumnName="Pizza7" />
+          <ScalarProperty Name="Pizza8" ColumnName="Pizza8" />
+          <ScalarProperty Name="Pizza9" ColumnName="Pizza9" />
+          <ScalarProperty Name="Pizza10" ColumnName="Pizza10" />
+          <ScalarProperty Name="Pizza11" ColumnName="Pizza11" />
+          <ScalarProperty Name="Pizza12" ColumnName="Pizza12" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="PizzaModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="NumberOfPizzaOrdered" ColumnName="NumberOfPizzaOrdered" />
+          <ScalarProperty Name="TotalOrderPrice" ColumnName="TotalOrderPrice" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="OrderDateTime" ColumnName="OrderDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pizzas">
+      <EntityTypeMapping TypeName="PizzaModel.Pizza">
+        <MappingFragment StoreEntitySet="Pizzas">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+          <ScalarProperty Name="CrustID" ColumnName="CrustID" />
+          <ScalarProperty Name="SauceID" ColumnName="SauceID" />
+          <ScalarProperty Name="IngredientsOnPizzaID" ColumnName="IngredientsOnPizzaID" />
+          <ScalarProperty Name="PizzaPrice" ColumnName="PizzaPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sauces">
+      <EntityTypeMapping TypeName="PizzaModel.Sauce">
+        <MappingFragment StoreEntitySet="Sauces">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sizes">
+      <EntityTypeMapping TypeName="PizzaModel.Size">
+        <MappingFragment StoreEntitySet="Sizes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="PizzaModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="LastTimeOrdered" ColumnName="LastTimeOrdered" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="database_firewall_rules">
+      <EntityTypeMapping TypeName="PizzaModel.database_firewall_rules">
+        <MappingFragment StoreEntitySet="database_firewall_rules">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="start_ip_address" ColumnName="start_ip_address" />
+          <ScalarProperty Name="end_ip_address" ColumnName="end_ip_address" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

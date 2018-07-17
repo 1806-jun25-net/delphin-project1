@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bda348114ad94a4899487ce686f4444f" Name="Diagram1">
+        <EntityTypeShape EntityType="PizzaModel.Crust" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.Ingredient" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.IngredientsOnPizza" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.Inventory" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.LocationOrderList" Width="1.5" PointX="12" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.Location" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.LocationUserList" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.NumberOfPizzaOrdered" Width="1.5" PointX="7.5" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.Order" Width="1.5" PointX="9.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.Pizza" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.Sauce" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.Size" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.User" Width="1.5" PointX="3" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PizzaModel.database_firewall_rules" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="PizzaModel.fk_Pizza_CrustID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_IngredientsOnPizza_Ingredient1" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_IngredientsOnPizza_Ingredient2" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_IngredientsOnPizza_Ingredient3" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_IngredientsOnPizza_Ingredient4" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_IngredientsOnPizza_Ingredient5" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_IngredientsOnPizza_Ingredient6" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_IngredientsOnPizza_Ingredient7" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_IngredientsOnPizza_Ingredient8" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_IngredientsOnPizza_Ingredient9" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Inventory_Ingredients_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Pizza_IngredientsOnPizza_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Inventory_LocationID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_LocationOrderList_LocationID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_LocationOrderList_OrderID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Location_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_LocationUserList_LocationID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Order_Location_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Pizza_Location_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_LocationUserList_UserID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza1" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza10" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza11" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza12" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza2" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza3" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza4" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza5" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza6" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza7" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza8" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_NumberOfPizzaOrdered_Pizza9" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Order_NumberOfPizzaOrdered" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Order_User_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Pizza_SauceID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Pizza_SizeID" ManuallyRouted="false" />
+        <AssociationConnector Association="PizzaModel.fk_Pizza_User_ID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

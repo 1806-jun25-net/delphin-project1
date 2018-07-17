@@ -1,0 +1,74 @@
+﻿@model IEnumerable<PizzaStore.Models.Pizza>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <h3>FirstName</h3>
+        </th>
+        <th>
+            <h3>Location</h3>
+        </th>
+        <th>
+            <h3>Size</h3>
+        </th>
+        <th>
+           <h3>Crust Type</h3>
+        </th>
+        <th>
+            <h3>Sauce</h3>
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.IngredientsOnPizza.ID)
+        </th>*@
+
+        <th>
+            <h3>Price</h3>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size.Name)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Crust.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sauce.Name)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.IngredientsOnPizza.ID)
+        </td>*@
+
+        <td>
+            @Html.DisplayFor(modelItem => item.PizzaPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

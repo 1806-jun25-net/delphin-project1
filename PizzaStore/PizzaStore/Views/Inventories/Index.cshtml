@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PizzaStore.Models.Inventory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>Inventory with the Name of their locations</h1>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <h2>Quantity</h2>
+        </th>
+        <th>
+            <h2>Ingredients</h2>
+        </th>
+        <th>
+           <h2>Location</h2>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ingredient.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location.NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
